@@ -16,7 +16,7 @@ export class AppComponent {
             backgroundColor: 'transparent',
             zoomType: 'xy',
             zoomKey: 'z',
-            style: {"fontFamily": "\"Lucida Grande\", \"Lucida Sans Unicode\", Verdana, Arial, Helvetica, sans-serif","fontSize":"20px"},
+
             scrollablePlotArea: {
               minHeight: 768,
               minWidth: 768
@@ -33,7 +33,7 @@ export class AppComponent {
         xAxis: {
           labels: {
             reserveSpace: true,
-            /*align: 'center',*/,
+            /*align: 'center',*/
                 style: {
                     fontSize:'14px'
                 }
