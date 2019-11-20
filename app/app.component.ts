@@ -11,66 +11,76 @@ export class AppComponent {
   ngOnInit() {
     this.stock = new Chart({
         chart: {
-            type: 'solidgauge',
-            height: '100%',
-            width: 350,
-            backgroundColor: 'transparent'
+            polar: true,
+            type: 'line',
+            backgroundColor: 'transparent',
+            zoomType: 'xy',
+            zoomKey: 'z',
+            style: {"fontFamily": "\"Lucida Grande\", \"Lucida Sans Unicode\", Verdana, Arial, Helvetica, sans-serif","fontSize":"20px"},
+            scrollablePlotArea: {
+              minHeight: 768,
+              minWidth: 768
+            }
         },
-        credits: {enabled: false},
         title: {
             text: 'Title',
-            y: 250,
-            style: {'font-family': 'Muli, Helvetica Neue, Arial, sans-serif', 'font-size': '36px'}
+            align: 'center',
+            textOverflow: 'ellipsis',
         },
         pane: {
-            startAngle: -90,
-            endAngle: 90,
-            background: {
-                backgroundColor: 'white',
-                innerRadius: '60%',
-                outerRadius: '90%',
-                shape: 'arc',
-                borderWidth: 0,
-            }
+            size: '90%'
         },
-        tooltip: {
-            enabled: false
+        xAxis: {
+          labels: {
+            reserveSpace: true,
+            /*align: 'center',*/,
+                style: {
+                    fontSize:'14px'
+                }
+            },
+            categories: ['Cat1 texto largo largo largisimo y mas alla', 'Cat2 texto largo largo largisimo y mas alla', 'Cat3 texto largo largo largisimo y mas alla', 'Cat4 texto largo largo largisimo y mas alla', 'Cat5 texto largo largo largisimo y mas alla', 'Cat6 texto largo largo largisimo y mas alla', 'Cat7 texto largo largo largisimo y mas alla', 'Cat8 texto largo largo largisimo y mas alla', 'Cat9 texto largo largo largisimo y mas alla', 'Cat10 texto largo largo largisimo y mas alla'],
+            tickmarkPlacement: 'on',
+            lineWidth: 0
         },
         yAxis: {
-            stops: [
-                [0.5, 'red'],
-                [1, 'green']
-            ],
-            length: 5,
+            gridLineInterpolation: 'polygon',
+            tickInterval: 50,
+            minorTickInterval: 25,
             lineWidth: 0,
-            minorTicks: false,
-            tickAmount: 0,
-            tickColor: 'transparent',
-            labels: {
-                enabled: false,
-            },
             min: 0,
-            max: 100,
-            plotBands: [
-                { from: 0, to: 50, color: 'red', outerRadius: '132'},
-                { from: 50, to: 100, color: 'green', outerRadius: '132'},
-            ]
+            max: 100
         },
-        plotOptions: {
-            solidgauge: {
-                threshold: 50,
-                dataLabels: {
-                    style: {'fontSize': '36px', 'font-family': 'Muli, Helvetica Neue, Arial, sans-serif', 'fontWeight': 'light'},
-                    y: -50,
-                    borderWidth: 0
-                }
-            }
+        legend: {
+            enabled: false
+        },
+        credits: {
+            enabled: false
         },
         series: [
             {
-                data: [100]
+                name: 'Serie',
+                color: '#88a682',
+                type: 'area',
+                data: [10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
+                pointPlacement: 'on'
             }
-        ]
+        ],
+        responsive: {
+          rules: [{
+              condition: {
+                  maxWidth: 500
+              },
+              chartOptions: {
+                  legend: {
+                      align: 'center',
+                      verticalAlign: 'bottom'
+                  },
+                  pane: {
+                      size: '70%'
+                  }
+              }
+          }]
+        }
     });
   }
 }
